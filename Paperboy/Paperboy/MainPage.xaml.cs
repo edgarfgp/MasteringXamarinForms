@@ -30,5 +30,10 @@ namespace Paperboy
         {
             await Navigation.PushAsync(new SettingsPage());
         }
+
+        private async void OnStyleTestClicked(object sender , EventArgs e)
+        {
+            await Navigation.PushAsync(new TestingPage());
+        }
     }
 }

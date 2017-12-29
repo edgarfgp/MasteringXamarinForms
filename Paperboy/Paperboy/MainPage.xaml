@@ -10,6 +10,11 @@
                      Icon="icon_settings.png"
                      Order="Primary"
                      Clicked="OnSettingsClicked" />
+        <ToolbarItem Text="Testing"
+                     Icon="icon.png"
+                     Order="Primary"
+                     Clicked="OnStyleTestClicked" />
+
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>

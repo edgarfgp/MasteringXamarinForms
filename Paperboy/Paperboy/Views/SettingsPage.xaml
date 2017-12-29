@@ -7,13 +7,15 @@
         <ScrollView>
             <StackLayout Margin="40">
 
-                <Label FontSize="Large"
+                <Label Style="{x:DynamicResource TitleStyle}"
                        Text="Adjust your app settings and preferences as needed." />
-                <Label Text="Maximum articles to display:" />
+                <Label Text="Maximum articles to display:"
+                       Style="{x:DynamicResource SubtitleStyle}" />
                 <Slider x:Name="articleCountSlider"
                         Minimum="0"
                         Maximum="20" />
-                <Label Text="Enter your display name:" />
+                <Label Text="Enter your display name:"
+                       Style="{x:DynamicResource SubtitleStyle}" />
                 <Entry x:Name="displayNameEntry" />
 
                 <controls:CircleImage WidthRequest="100"
@@ -21,10 +23,12 @@
                                       Source="https://wintellectnow.blob.core.windows.net/public/Scott_Peterson.jpg"
                                       Aspect="AspectFit" />
 
-                <Label Text="My bio:" />
+                <Label Text="My bio:"
+                       Style="{x:DynamicResource SubtitleStyle}" />
                 <Editor HeightRequest="160"
                         x:Name="bioEditor" />
-                <Label Text="Select a default news category:" />
+                <Label Text="Select a default news category:"
+                       Style="{x:DynamicResource SubtitleStyle}" />
                 <Picker x:Name="categoryPicker">
                     <Picker.Items>
                         <x:String>Business</x:String>
