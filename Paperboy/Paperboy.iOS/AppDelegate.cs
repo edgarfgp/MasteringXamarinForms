@@ -24,6 +24,17 @@ namespace Paperboy.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            UIColor accentColor = UIColor.FromRGB(0, 89, 178);
+
+            UISlider.Appearance.TintColor = accentColor;
+            UISlider.Appearance.ThumbTintColor = accentColor;
+
+            UITabBar.Appearance.TintColor = accentColor;
+            UITabBar.Appearance.SelectedImageTintColor = accentColor;
+
+            UINavigationBar.Appearance.BarTintColor = accentColor;
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+            UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes { TextColor = UIColor.White });
             ImageCircleRenderer.Init();
             LoadApplication(new App());
 
