@@ -15,10 +15,7 @@ namespace Paperboy
 			InitializeComponent();
 		}
 
-        //public void OnClickListView(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new ListViewPage1());
-        //}
+        
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {

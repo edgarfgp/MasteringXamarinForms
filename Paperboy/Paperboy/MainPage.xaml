@@ -5,7 +5,7 @@
             xmlns:views="clr-namespace:Paperboy.Views"
             x:Class="Paperboy.MainPage">
     <TabbedPage.ToolbarItems>
-        <ToolbarItem Text="2"
+        <ToolbarItem Text="P2"
                      Clicked="ToolbarItem_Clicked" />
     </TabbedPage.ToolbarItems>
 
