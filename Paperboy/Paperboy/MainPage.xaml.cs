@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Paperboy.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,11 @@ namespace Paperboy
 		{
 			InitializeComponent();
 		}
-	}
+
+        public void OnClickListView(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ListViewPage1());
+        }
+
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Paperboy.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace Paperboy
 		{
 			InitializeComponent();
 
-			MainPage = new Paperboy.MainPage();
-		}
+            MainPage = new NavigationPage(new MainPage());
+        }
 
 		protected override void OnStart ()
 		{

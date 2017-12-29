@@ -4,8 +4,21 @@
              xmlns:local="clr-namespace:Paperboy"
              x:Class="Paperboy.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="ListView Page"
+                        Clicked="OnClickListView"
+                        Grid.Row="0"
+                        Grid.Column="0" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>
