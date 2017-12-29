@@ -1,10 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Paperboy"
-             x:Class="Paperboy.MainPage">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Paperboy"
+            xmlns:views="clr-namespace:Paperboy.Views"
+            x:Class="Paperboy.MainPage">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="2"
+                     Clicked="ToolbarItem_Clicked" />
+    </TabbedPage.ToolbarItems>
 
-    <ContentPage.Content>
+    <TabbedPage.Children>
+        <views:Page1 Title="Page 1" />
+        <views:TestingPage Title="Testing" />
+        <views:ListViewPage1 Title="List View" />
+    </TabbedPage.Children>
+
+    <!--<ContentPage.Content>
         <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
@@ -19,6 +30,6 @@
                         Grid.Column="0" />
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 
-</ContentPage>
+</TabbedPage>

@@ -8,17 +8,21 @@ using Xamarin.Forms;
 
 namespace Paperboy
 {
-	public partial class MainPage : ContentPage
+	public partial class MainPage : TabbedPage
 	{
 		public MainPage()
 		{
 			InitializeComponent();
 		}
 
-        public void OnClickListView(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ListViewPage1());
-        }
+        //public void OnClickListView(object sender, EventArgs e)
+        //{
+        //    Navigation.PushAsync(new ListViewPage1());
+        //}
 
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Page2());
+        }
     }
 }
