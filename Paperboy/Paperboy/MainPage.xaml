@@ -1,11 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Paperboy"
-             x:Class="Paperboy.MainPage">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:Paperboy"
+            xmlns:views="clr-namespace:Paperboy.Views"
+            x:Class="Paperboy.MainPage"
+            Title="Home">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Settings"
+                     Icon="icon_settings.png"
+                     Order="Primary"
+                     Clicked="OnSettingsClicked" />
+    </TabbedPage.ToolbarItems>
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <TabbedPage.Children>
+        <views:TrendingPage Icon="icon_trending.png"
+                            Title="Trending" />
+        <views:WorldPage Icon="icon_world.png"
+                         Title="World" />
+        <views:TechnologyPage Icon="icon_technology.png"
+                              Title="Technology" />
+    </TabbedPage.Children>
 
-</ContentPage>
+
+</TabbedPage>
