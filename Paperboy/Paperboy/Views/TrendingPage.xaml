@@ -27,10 +27,12 @@
                                               Aspect="AspectFill" />
 
                         <Label FontSize="Medium"
+                               Style="{DynamicResource ListTitleStyle}"
                                Grid.Column="1"
                                Grid.Row="0"
                                Text="{Binding Title}" />
                         <Label VerticalTextAlignment="Start"
+                               Style="{DynamicResource ListDescriptionStyle}"
                                VerticalOptions="Start"
                                Grid.Column="1"
                                Grid.Row="1"

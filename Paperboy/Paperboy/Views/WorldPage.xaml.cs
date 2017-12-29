@@ -35,5 +35,10 @@ namespace Paperboy.Views
 
             newsListView.IsRefreshing = false;
         }
+
+        //private void ListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    App.Current.Resources["ListTextColor"] = Color.Blue;
+        //}
     }
 }
