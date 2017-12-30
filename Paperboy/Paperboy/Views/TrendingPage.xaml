@@ -6,7 +6,8 @@
 
     <ListView x:Name="newsListView"
               HasUnevenRows="True"
-              ItemsSource="{Binding}"
+              IsRefreshing="{Binding IsRefreshing}"
+              ItemsSource="{Binding WorldNews}"
               Margin="20">
         <ListView.ItemTemplate>
             <DataTemplate>

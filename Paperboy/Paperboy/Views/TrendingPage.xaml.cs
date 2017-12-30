@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Paperboy.Services;
+using Paperboy.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,24 +16,22 @@ namespace Paperboy.Views
 	{
 		public TrendingPage ()
 		{
+            BindingContext = new TrendingViewModel(new NewsService());
 			InitializeComponent ();
 		}
         protected override void OnAppearing()
         {
-            LoadNewsAsync();
+          // await ViewModel.LoadNewsAsync();
 
             base.OnAppearing();
         }
 
-        private async void LoadNewsAsync()
+        private TrendingViewModel ViewModel
         {
-            newsListView.IsRefreshing = true;
+            get => BindingContext as TrendingViewModel;
 
-            var news = await Services.NewsService.GetTrendingAsync();
-
-            this.BindingContext = news;
-
-            newsListView.IsRefreshing = false;
+            set => BindingContext = value;
         }
+
     }
 }

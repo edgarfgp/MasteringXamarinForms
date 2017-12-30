@@ -1,4 +1,6 @@
 ﻿using Paperboy.Models.NewsInfo;
+using Paperboy.Services;
+using Paperboy.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,29 @@ using Xamarin.Forms.Xaml;
 
 namespace Paperboy.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TechnologyPage : ContentPage
-	{
-		public TechnologyPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class TechnologyPage : ContentPage
+    {
+        public TechnologyPage()
+        {
+            BindingContext = new TechnologyViewModel(new NewsService());
+            InitializeComponent();
+        }
         protected override void OnAppearing()
         {
-            LoadNewsAsync();
+           // await ViewModel.LoadNewsAsync();
 
             base.OnAppearing();
         }
 
-        private async void LoadNewsAsync()
+        private TechnologyViewModel ViewModel
         {
-            newsListView.IsRefreshing = true;
+            get => BindingContext as TechnologyViewModel;
 
-            var news = await Services.NewsService.GetByCategoryAsync(NewsCategoryType.ScienceAndTechnology);
-
-            this.BindingContext = news;
-
-            newsListView.IsRefreshing = false;
+            set => BindingContext = value;
         }
+
+
+
     }
 }

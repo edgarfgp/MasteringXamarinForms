@@ -1,4 +1,6 @@
 ﻿using Paperboy.Models.NewsInfo;
+using Paperboy.Services;
+using Paperboy.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,30 +17,22 @@ namespace Paperboy.Views
 	{
 		public WorldPage ()
 		{
+            BindingContext = new WorldViewModel(new NewsService());
 			InitializeComponent ();
+
 		}
 
         protected override void OnAppearing()
         {
-            LoadNewsAsync();
+          //  await ViewModel.LoadNewsAsync();
 
             base.OnAppearing();
         }
-
-        private async void LoadNewsAsync()
+        private WorldViewModel ViewModel
         {
-            newsListView.IsRefreshing = true;
+            get => BindingContext as WorldViewModel;
 
-            var news = await Services.NewsService.GetByCategoryAsync(NewsCategoryType.World);
-
-            this.BindingContext = news;
-
-            newsListView.IsRefreshing = false;
+            set => BindingContext = value;
         }
-
-        //private void ListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    App.Current.Resources["ListTextColor"] = Color.Blue;
-        //}
     }
 }

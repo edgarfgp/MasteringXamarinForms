@@ -6,8 +6,9 @@
     <ContentPage.Content>
         <ListView SeparatorVisibility="None"
                   x:Name="newsListView"
+                  IsRefreshing="{Binding IsRefreshing}"
                   HasUnevenRows="True"
-                  ItemsSource="{Binding}"
+                  ItemsSource="{Binding WorldNews}"
                   Margin="10">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -23,11 +24,11 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <controls:CircleImage Grid.RowSpan="2"
-                                   VerticalOptions="Start"
-                                   WidthRequest="80"
-                                   HeightRequest="80"
-                                   Source="{Binding ImageUrl}"
-                                   Aspect="Fill" />
+                                                  VerticalOptions="Start"
+                                                  WidthRequest="80"
+                                                  HeightRequest="80"
+                                                  Source="{Binding ImageUrl}"
+                                                  Aspect="Fill" />
 
                             <Label Style="{DynamicResource ListTitleStyle}"
                                    Grid.Column="1"

@@ -8,8 +8,8 @@ namespace Paperboy.Services
 {
     public interface INewsService
     {
-        Task<List<NewsInformation>> GetByCategoryAsync(NewsCategoryType category);
-        Task<List<NewsInformation>> GetAsync(string searchQuery);
-        Task<List<NewsInformation>> GetTrendingAsync();
+        Task<IEnumerable<NewsInformation>> GetByCategoryAsync(NewsCategoryType category);
+        Task<IEnumerable<NewsInformation>> GetAsync(string searchQuery);
+        Task<IEnumerable<NewsInformation>> GetTrendingAsync();
     }
 }

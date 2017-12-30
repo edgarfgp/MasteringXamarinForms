@@ -3,17 +3,17 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:Paperboy"
             xmlns:views="clr-namespace:Paperboy.Views"
-            x:Class="Paperboy.MainPage"
+            x:Class="Paperboy.Views.MainPage"
             Title="Home">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Settings"
                      Icon="icon_settings.png"
                      Order="Primary"
-                     Clicked="OnSettingsClicked" />
+                     Command="{Binding OnSettingsCommand}" />
         <ToolbarItem Text="Testing"
                      Icon="icon.png"
                      Order="Primary"
-                     Clicked="OnStyleTestClicked" />
+                     Command="{Binding OnStyleTestCommand}" />
 
     </TabbedPage.ToolbarItems>
 

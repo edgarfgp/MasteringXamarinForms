@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Paperboy.Services
 {
-    public static class NewsService
+    public class NewsService : INewsService
     {
-        public static async Task<List<NewsInformation>> GetByCategoryAsync(NewsCategoryType category)
+        public async Task<IEnumerable<NewsInformation>> GetByCategoryAsync(NewsCategoryType category)
         {
-            List<NewsInformation> results = new List<NewsInformation>();
+            var results = new List<NewsInformation>();
 
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/?Category={category}";
 
@@ -26,22 +26,22 @@ namespace Paperboy.Services
             var result = await client.GetStringAsync(uri);
             var newsResult = JsonConvert.DeserializeObject<NewsResult>(result);
 
-            results = (from item in newsResult.value
+            results = (from item in newsResult.Value
                        select new NewsInformation()
                        {
-                           Title = item.name,
-                           Description = item.description,
-                           CreatedDate = item.datePublished,
-                           ImageUrl = item.image?.thumbnail?.contentUrl,
+                           Title = item.Name,
+                           Description = item.Description,
+                           CreatedDate = item.DatePublished,
+                           ImageUrl = item.Image?.Thumbnail?.ContentUrl,
 
                        }).ToList();
 
             return results.Where(w => !string.IsNullOrEmpty(w.ImageUrl)).Take(10).ToList();
         }
 
-        public static async Task<List<NewsInformation>> GetAsync(string searchQuery)
+        public async Task<IEnumerable<NewsInformation>> GetAsync(string searchQuery)
         {
-            List<NewsInformation> results = new List<NewsInformation>();
+            var results = new List<NewsInformation>();
 
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/search?q={searchQuery}&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
 
@@ -52,22 +52,22 @@ namespace Paperboy.Services
             var result = await client.GetStringAsync(uri);
             var newsResult = JsonConvert.DeserializeObject<NewsResult>(result);
 
-            results = (from item in newsResult.value
+            results = (from item in newsResult.Value
                        select new NewsInformation()
                        {
-                           Title = item.name,
-                           Description = item.description,
-                           CreatedDate = item.datePublished,
-                           ImageUrl = item.image?.thumbnail?.contentUrl,
+                           Title = item.Name,
+                           Description = item.Description,
+                           CreatedDate = item.DatePublished,
+                           ImageUrl = item.Image?.Thumbnail?.ContentUrl,
 
                        }).ToList();
 
             return results.Where(w => !string.IsNullOrEmpty(w.ImageUrl)).Take(10).ToList();
         }
 
-        public async static Task<List<NewsInformation>> GetTrendingAsync()
+        public async Task<IEnumerable<NewsInformation>> GetTrendingAsync()
         {
-            List<NewsInformation> results = new List<NewsInformation>();
+            var results = new List<NewsInformation>();
 
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics";
 
@@ -78,13 +78,13 @@ namespace Paperboy.Services
             var result = await client.GetStringAsync(uri);
             var newsResult = JsonConvert.DeserializeObject<TrendingNewsResult>(result);
 
-            results = (from item in newsResult.value
+            results = (from item in newsResult.Value
                        select new NewsInformation()
                        {
-                           Title = item.name,
-                           Description = item.query.text,
+                           Title = item.Name,
+                           Description = item.Query.Text,
                            CreatedDate = DateTime.Now,
-                           ImageUrl = item.image.url,
+                           ImageUrl = item.Image.Url,
 
                        }).ToList();
 
