@@ -7,6 +7,9 @@
         <ListView SeparatorVisibility="None"
                   x:Name="newsListView"
                   IsRefreshing="{Binding IsBusy}"
+                  CachingStrategy="RecycleElement"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}"
                   HasUnevenRows="True"
                   ItemsSource="{Binding WorldNews}"
                   Margin="10">

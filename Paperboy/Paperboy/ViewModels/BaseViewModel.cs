@@ -19,6 +19,13 @@ namespace Paperboy.ViewModels
             set { if (SetProperty(ref _isBusy, value)) OnPropertyChanged(nameof(_isBusy)); }
         }
 
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set { SetProperty(ref _isRefreshing, value); }
+        }
+
 
 
         private List<NewsInformation> _worldNews;

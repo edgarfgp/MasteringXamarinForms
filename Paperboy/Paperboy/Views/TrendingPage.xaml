@@ -7,6 +7,8 @@
     <ListView x:Name="newsListView"
               HasUnevenRows="True"
               IsRefreshing="{Binding IsBusy}"
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
               ItemsSource="{Binding WorldNews}"
               Margin="20">
         <ListView.ItemTemplate>
