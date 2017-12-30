@@ -28,7 +28,7 @@ namespace Paperboy.Views
         {
             newsListView.IsRefreshing = true;
 
-            var news = await Helpers.NewsHelper.GetByCategoryAsync(NewsCategoryType.ScienceAndTechnology);
+            var news = await Services.NewsService.GetByCategoryAsync(NewsCategoryType.ScienceAndTechnology);
 
             this.BindingContext = news;
 

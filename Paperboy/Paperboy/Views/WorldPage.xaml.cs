@@ -29,7 +29,7 @@ namespace Paperboy.Views
         {
             newsListView.IsRefreshing = true;
 
-            var news = await Helpers.NewsHelper.GetByCategoryAsync(NewsCategoryType.World);
+            var news = await Services.NewsService.GetByCategoryAsync(NewsCategoryType.World);
 
             this.BindingContext = news;
 

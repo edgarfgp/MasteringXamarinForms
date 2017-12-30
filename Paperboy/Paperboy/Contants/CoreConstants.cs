@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Paperboy.Common
+namespace Paperboy.Contants
 {
 
     internal class CoreConstants

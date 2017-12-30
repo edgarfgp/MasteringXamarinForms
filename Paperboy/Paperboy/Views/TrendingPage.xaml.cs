@@ -27,7 +27,7 @@ namespace Paperboy.Views
         {
             newsListView.IsRefreshing = true;
 
-            var news = await Helpers.NewsHelper.GetTrendingAsync();
+            var news = await Services.NewsService.GetTrendingAsync();
 
             this.BindingContext = news;
 
