@@ -11,12 +11,12 @@ namespace Paperboy.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private bool _isRefreshing;
+        private bool _isBusy;
 
-        public bool IsRefreshing
+        public bool IsBusy
         {
-            get => _isRefreshing; 
-            set { if (SetProperty(ref _isRefreshing, value)) OnPropertyChanged(nameof(_isRefreshing)); }
+            get => _isBusy;
+            set { if (SetProperty(ref _isBusy, value)) OnPropertyChanged(nameof(_isBusy)); }
         }
 
 

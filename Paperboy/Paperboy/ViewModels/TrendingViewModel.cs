@@ -21,11 +21,11 @@ namespace Paperboy.ViewModels
         }
         public async Task LoadNewsAsync()
         {
-            IsRefreshing = true;
+            IsBusy = true;
             var news = await _newsService.GetTrendingAsync();
 
             Set(news);
-            IsRefreshing = false;
+            IsBusy = false;
         }
 
         private void Set(IEnumerable<NewsInformation> news)

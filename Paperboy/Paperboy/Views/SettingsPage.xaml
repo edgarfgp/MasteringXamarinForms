@@ -5,31 +5,31 @@
              x:Class="Paperboy.Views.SettingsPage">
     <ContentPage.Content>
         <ScrollView>
+
             <StackLayout Margin="40">
 
                 <Label Style="{x:DynamicResource TitleStyle}"
                        Text="Adjust your app settings and preferences as needed." />
-                <Label Text="Maximum articles to display:"
-                       Style="{x:DynamicResource SubtitleStyle}" />
+                <Label Style="{x:DynamicResource SubtitleStyle}"
+                       Text="Maximum articles to display:" />
                 <Slider x:Name="articleCountSlider"
                         Minimum="0"
                         Maximum="20" />
-                <Label Text="Enter your display name:"
-                       Style="{x:DynamicResource SubtitleStyle}" />
-                <Entry x:Name="displayNameEntry" />
+                <Label Style="{x:DynamicResource SubtitleStyle}"
+                       Text="Enter your display name:" />
+                <Entry Text="{Binding User.DisplayName, Mode=TwoWay}" />
+                <Image HeightRequest="100"
+                       Source="{Binding User.ProfileImageUrl}"
+                       Aspect="AspectFit" />
 
-                <controls:CircleImage WidthRequest="100"
-                                      HeightRequest="100"
-                                      Source="https://wintellectnow.blob.core.windows.net/public/Scott_Peterson.jpg"
-                                      Aspect="AspectFit" />
-
-                <Label Text="My bio:"
-                       Style="{x:DynamicResource SubtitleStyle}" />
-                <Editor HeightRequest="160"
-                        x:Name="bioEditor" />
-                <Label Text="Select a default news category:"
-                       Style="{x:DynamicResource SubtitleStyle}" />
-                <Picker x:Name="categoryPicker">
+                <Label Style="{x:DynamicResource SubtitleStyle}"
+                       Text="My bio:" />
+                <Editor Text="{Binding User.BioContent}"
+                        HeightRequest="160" />
+                <Label Style="{x:DynamicResource SubtitleStyle}"
+                       Text="Select a default news category:" />
+                <Picker TextColor="{DynamicResource ListTextColor}"
+                        x:Name="categoryPicker">
                     <Picker.Items>
                         <x:String>Business</x:String>
                         <x:String>Science and Technology</x:String>
@@ -38,9 +38,10 @@
                         <x:String>Entertainment</x:String>
                         <x:String>Sports</x:String>
                         <x:String>World</x:String>
-                    </Picker.Items>
+                    </Picker.Items>OnSaveClickCommand
                 </Picker>
-                <Button Text="Save" />
+                <Button Command="{Binding OnSaveClickCommand}"
+                        Text="Save" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

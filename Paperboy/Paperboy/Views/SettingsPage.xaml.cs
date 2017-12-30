@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Paperboy.Services;
+using Paperboy.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,26 +11,21 @@ using Xamarin.Forms.Xaml;
 
 namespace Paperboy.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SettingsPage : ContentPage
-	{
-		public SettingsPage ()
-		{
-			InitializeComponent ();
-		}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class SettingsPage : ContentPage
+    {
+        public SettingsPage()
+        {
+            BindingContext = new SettingsViewModel(new UserService(), new PageService());
+            InitializeComponent();
+            articleCountSlider.Value = 10;
+            categoryPicker.SelectedIndex = 1;
+        }
         protected override void OnAppearing()
         {
-            InitializeSettings();
 
             base.OnAppearing();
         }
 
-        private void InitializeSettings()
-        {
-            displayNameEntry.Text = "Scott";
-            bioEditor.Text = "Scott has been developing Microsoft Enterprise solutions for organizations around the world for the last 28 years, and is the Senior Architect & Developer behind Liquid Daffodil.";
-            articleCountSlider.Value = 10;
-            categoryPicker.SelectedIndex = 1;
-        }
     }
 }

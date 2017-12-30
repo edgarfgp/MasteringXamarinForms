@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ListView SeparatorVisibility="None"
                   x:Name="newsListView"
-                  IsRefreshing="{Binding IsRefreshing}"
+                  IsRefreshing="{Binding IsBusy}"
                   HasUnevenRows="True"
                   ItemsSource="{Binding WorldNews}"
                   Margin="10">
