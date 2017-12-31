@@ -15,6 +15,16 @@ namespace Paperboy.ViewModels
         private IPageService _pageService;
         private UserInformation _user;
 
+        private string _extendedPlatformLabel;
+
+        public string ExtendedPlatformLabel
+        {
+            get => _extendedPlatformLabel;
+            set { if (SetProperty(ref _extendedPlatformLabel, value)) OnPropertyChanged(nameof(_extendedPlatformLabel)); }
+
+        }
+
+
         public UserInformation User
         {
             get => _user;
@@ -35,6 +45,17 @@ namespace Paperboy.ViewModels
             _userService = userService;
             _pageService = pageService;
             LoadUserAsync();
+            var label = Helpers.GeneralHelper.GetLabel();
+            _extendedPlatformLabel = Helpers.GeneralHelper.GetLabel("Running Paperboy on", true);
+            _currentOrientation = Helpers.GeneralHelper.GetOrientation();
+        }
+
+        private DeviceOrientations _currentOrientation;
+
+        public DeviceOrientations CurrentOrientation
+        {
+            get => _currentOrientation;
+            set { if (SetProperty(ref _currentOrientation, value)) OnPropertyChanged(nameof(_currentOrientation)); }
         }
 
         public void LoadUserAsync()

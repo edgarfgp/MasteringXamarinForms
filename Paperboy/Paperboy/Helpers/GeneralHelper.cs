@@ -13,12 +13,12 @@ namespace Paperboy.Helpers
         //       DependencyService.Get<ITextSpeecher>().Speak(text);
         //    }
 
-        //    public static DeviceOrientations GetOrientation()
-        //    {
-        //        var orientation = DependencyService.Get<IDeviceOrientation>().GetOrientation();
+        public static DeviceOrientations GetOrientation()
+        {
+            var orientation = DependencyService.Get<IDeviceOrientation>().GetOrientation();
 
-        //        return orientation;
-        //    }
+            return orientation;
+        }
 
         public static string GetLabel()
         {
