@@ -1,6 +1,8 @@
 ﻿using Paperboy.Extensions;
+using Paperboy.IServices;
 using Paperboy.Models.NewsInfo;
 using Paperboy.Services;
+using Paperboy.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,10 +16,26 @@ namespace Paperboy.ViewModels
     public class WorldViewModel : BaseViewModel
     {
         private INewsService _newsService;
+        private IPageService _pageService;
 
-        public WorldViewModel(INewsService newsService)
+        //private NewsInformation _seletectedInfo;
+
+        //public NewsInformation SeletectedInfo
+        //{
+        //    get => _seletectedInfo;
+        //    set
+        //    {
+        //        _seletectedInfo = value;
+        //        if (value != null)
+        //        {                   
+        //            SetProperty(ref _seletectedInfo, null);
+        //        }
+        //    }
+        //}
+        public WorldViewModel(INewsService newsService, IPageService pageService)
         {
             _newsService = newsService;
+            _pageService = pageService;
             LoadNewsAsync().ToTaskRun();
 
         }
@@ -35,6 +53,14 @@ namespace Paperboy.ViewModels
             WorldNews = news.ToList();
 
         }
+
+        public ICommand NavigateToDetailCommand => (new Command<NewsInformation>(async (vm) =>
+        {
+            if (vm == null)
+                return;
+            await _pageService.PushAsync(new NewsDetailPage(vm));
+
+        }));
         public ICommand RefreshCommand
         {
             get

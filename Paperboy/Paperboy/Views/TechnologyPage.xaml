@@ -11,6 +11,8 @@
                   RefreshCommand="{Binding RefreshCommand}"
                   HasUnevenRows="True"
                   ItemsSource="{Binding WorldNews}"
+                  SelectedItem="{Binding SeletectedInfo, Mode=TwoWay}"
+                  ItemTapped="OnItemTapped"
                   Margin="10">
             <ListView.ItemTemplate>
                 <DataTemplate>

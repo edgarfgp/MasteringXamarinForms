@@ -1,4 +1,5 @@
-﻿using Paperboy.Services;
+﻿using Paperboy.Models.NewsInfo;
+using Paperboy.Services;
 using Paperboy.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Paperboy.Views
 	{
 		public TrendingPage ()
 		{
-            BindingContext = new TrendingViewModel(new NewsService());
+            BindingContext = new TrendingViewModel(new NewsService(), new PageService());
 			InitializeComponent ();
 		}
         protected override void OnAppearing()
@@ -31,6 +32,11 @@ namespace Paperboy.Views
             get => BindingContext as TrendingViewModel;
 
             set => BindingContext = value;
+        }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ViewModel.NavigateToDetailCommand.Execute(e.Item as NewsInformation);
         }
 
     }

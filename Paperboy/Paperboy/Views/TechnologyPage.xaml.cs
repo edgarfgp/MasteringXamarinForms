@@ -17,7 +17,7 @@ namespace Paperboy.Views
     {
         public TechnologyPage()
         {
-            BindingContext = new TechnologyViewModel(new NewsService());
+            BindingContext = new TechnologyViewModel(new NewsService(), new PageService());
             InitializeComponent();
         }
         protected override void OnAppearing()
@@ -32,6 +32,11 @@ namespace Paperboy.Views
             get => BindingContext as TechnologyViewModel;
 
             set => BindingContext = value;
+        }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ViewModel.NavigateToDetailCommand.Execute(e.Item as NewsInformation);
         }
 
 

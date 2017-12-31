@@ -10,6 +10,8 @@
               IsPullToRefreshEnabled="True"
               RefreshCommand="{Binding RefreshCommand}"
               ItemsSource="{Binding WorldNews}"
+              SelectedItem="{Binding SeletectedInfo, Mode=TwoWay}"
+              ItemTapped="OnItemTapped"
               Margin="20">
         <ListView.ItemTemplate>
             <DataTemplate>

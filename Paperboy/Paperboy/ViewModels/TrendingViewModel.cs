@@ -1,6 +1,8 @@
 ﻿using Paperboy.Extensions;
+using Paperboy.IServices;
 using Paperboy.Models.NewsInfo;
 using Paperboy.Services;
+using Paperboy.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,10 +17,12 @@ namespace Paperboy.ViewModels
     public class TrendingViewModel : BaseViewModel
     {
         private INewsService _newsService;
+        private IPageService _pageService;
 
-        public TrendingViewModel(INewsService newsService)
+        public TrendingViewModel(INewsService newsService, IPageService pageService)
         {
             _newsService = newsService;
+            _pageService = pageService;
             LoadNewsAsync().ToTaskRun();
 
         }
@@ -36,6 +40,15 @@ namespace Paperboy.ViewModels
             WorldNews = news.ToList();
 
         }
+
+        
+        public ICommand NavigateToDetailCommand => (new Command<NewsInformation>(async (vm) =>
+        {
+            if (vm == null)
+                return;
+            await _pageService.PushAsync(new NewsDetailPage(vm));
+
+        }));
 
         public ICommand RefreshCommand
         {

@@ -24,7 +24,8 @@
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
-
+    <!--This line remove the orange color when you select an item form a ListView-->
+    <item name="android:colorActivatedHighlight">@android:color/transparent</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
 

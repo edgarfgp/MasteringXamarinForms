@@ -27,13 +27,27 @@ namespace Paperboy.ViewModels
         }
 
 
-
         private List<NewsInformation> _worldNews;
 
         public List<NewsInformation> WorldNews
         {
             get => _worldNews;
             set { if (SetProperty(ref _worldNews, value)) OnPropertyChanged(nameof(_worldNews)); }
+        }
+
+        private NewsInformation _seletectedInfo;
+
+        public NewsInformation SeletectedInfo
+        {
+            get => _seletectedInfo;
+            set
+            {
+                _seletectedInfo = value;
+                if (value != null)
+                {
+                    SetProperty(ref _seletectedInfo, null);
+                }
+            }
         }
 
 

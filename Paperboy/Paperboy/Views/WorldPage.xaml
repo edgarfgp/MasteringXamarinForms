@@ -6,6 +6,8 @@
     <ContentPage.Content>
         <ListView SeparatorVisibility="None"
                   x:Name="newsListView"
+                  ItemTapped="OnItemTapped"
+                  SelectedItem="{Binding SeletectedInfo, Mode=TwoWay}"
                   IsRefreshing="{Binding IsBusy}"
                   CachingStrategy="RecycleElement"
                   IsPullToRefreshEnabled="True"

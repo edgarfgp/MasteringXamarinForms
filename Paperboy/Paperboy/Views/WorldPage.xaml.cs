@@ -1,4 +1,5 @@
-﻿using Paperboy.Models.NewsInfo;
+﻿using Paperboy.Commands;
+using Paperboy.Models.NewsInfo;
 using Paperboy.Services;
 using Paperboy.ViewModels;
 using System;
@@ -12,20 +13,19 @@ using Xamarin.Forms.Xaml;
 
 namespace Paperboy.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class WorldPage : ContentPage
-	{
-		public WorldPage ()
-		{
-            BindingContext = new WorldViewModel(new NewsService());
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class WorldPage : ContentPage
+    {
+        public WorldPage()
+        {
+            BindingContext = new WorldViewModel(new NewsService(), new PageService());
+            InitializeComponent();
 
-		}
+        }
 
         protected override void OnAppearing()
         {
-          //  await ViewModel.LoadNewsAsync();
-
+            //  await ViewModel.LoadNewsAsync();
             base.OnAppearing();
         }
         private WorldViewModel ViewModel
@@ -33,6 +33,11 @@ namespace Paperboy.Views
             get => BindingContext as WorldViewModel;
 
             set => BindingContext = value;
+        }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            ViewModel.NavigateToDetailCommand.Execute(e.Item as NewsInformation);
         }
     }
 }
