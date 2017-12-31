@@ -23,25 +23,37 @@
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <controls:CircleImage Grid.RowSpan="2"
-                                              WidthRequest="100"
-                                              HeightRequest="100"
+                        <controls:CircleImage Grid.RowSpan="4"
+                                              WidthRequest="80"
+                                              HeightRequest="80"
                                               Source="{Binding ImageUrl}"
                                               Aspect="AspectFill" />
 
-                        <Label FontSize="Medium"
-                               Style="{DynamicResource ListTitleStyle}"
+                        <Label Style="{DynamicResource ListTitleStyle}"
+                               FontAttributes="{Binding Title, Converter={StaticResource LabelFontWeightConverter}}"
                                Grid.Column="1"
                                Grid.Row="0"
                                Text="{Binding Title}" />
-                        <Label VerticalTextAlignment="Start"
-                               Style="{DynamicResource ListDescriptionStyle}"
-                               VerticalOptions="Start"
+                        <Label Style="{DynamicResource ListDescriptionStyle}"
                                Grid.Column="1"
                                Grid.Row="1"
+                               Text="TOPIC:" />
+                        <Label Style="{DynamicResource ListDescriptionStyle}"
+                               FontAttributes="{Binding Description, Converter={StaticResource LabelFontWeightConverter}}"
+                               Grid.Column="1"
+                               Grid.Row="2"
                                Text="{Binding Description}" />
+
+                        <Label VerticalOptions="Start"
+                               Margin="0,5"
+                               FontSize="Micro"
+                               Grid.Column="1"
+                               Grid.Row="3"
+                               Text="{Binding CreatedDate, Converter={StaticResource AgoLabelConverter}" />
                     </Grid>
                 </ViewCell>
             </DataTemplate>

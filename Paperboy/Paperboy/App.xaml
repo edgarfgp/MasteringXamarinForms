@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:command="clr-namespace:Paperboy.Commands"
+             xmlns:converter="clr-namespace:Paperboy.Converters"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Paperboy.App">
     <Application.Resources>
         <ResourceDictionary>
 
             <Color x:Key="ListTextColor">#000000</Color>
-
+            
+            <!--<command:NavigateToSettingsCommand x:Key="NavigateToSettingsCommand" />
+            <command:RefreshNewsCommand x:Key="RefreshNewsCommand" />-->
+            
+            <converter:AgoLabelConverter x:Key="AgoLabelConverter" />
+            <converter:LabelFontWeightConverter x:Key="LabelFontWeightConverter" />
             <Style x:Key="ListTitleStyle"
                    TargetType="Label">
                 <Setter Property="HorizontalOptions"
