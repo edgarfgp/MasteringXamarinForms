@@ -1,4 +1,5 @@
-﻿using Paperboy.Services;
+﻿using Paperboy.Helpers;
+using Paperboy.Services;
 using Paperboy.ViewModels;
 using Xamarin.Forms;
 
@@ -14,6 +15,8 @@ namespace Paperboy.Views
         protected override void OnAppearing()
         {
             Plugin.Connectivity.CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
+
+            var label = GeneralHelper.GetLabel();
 
             base.OnAppearing();
         }
