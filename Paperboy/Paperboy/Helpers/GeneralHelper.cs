@@ -8,10 +8,10 @@ namespace Paperboy.Helpers
 {
     public class GeneralHelper
     {
-        //    public static void Speak(string text)
-        //    {
-        //       DependencyService.Get<ITextSpeecher>().Speak(text);
-        //    }
+        public static void Speak(string text)
+        {
+            DependencyService.Get<ITextSpeecher>().Speak(text);
+        }
 
         public static DeviceOrientations GetOrientation()
         {
