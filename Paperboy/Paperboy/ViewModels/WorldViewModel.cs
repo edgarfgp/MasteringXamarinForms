@@ -18,20 +18,7 @@ namespace Paperboy.ViewModels
         private INewsService _newsService;
         private IPageService _pageService;
 
-        //private NewsInformation _seletectedInfo;
 
-        //public NewsInformation SeletectedInfo
-        //{
-        //    get => _seletectedInfo;
-        //    set
-        //    {
-        //        _seletectedInfo = value;
-        //        if (value != null)
-        //        {                   
-        //            SetProperty(ref _seletectedInfo, null);
-        //        }
-        //    }
-        //}
         public WorldViewModel(INewsService newsService, IPageService pageService)
         {
             _newsService = newsService;
@@ -42,7 +29,7 @@ namespace Paperboy.ViewModels
         public async Task LoadNewsAsync()
         {
             IsBusy = true;
-            var news = await _newsService.GetByCategoryAsync(NewsCategoryType.ScienceAndTechnology);
+            var news = await _newsService.GetByCategoryAsync(NewsCategoryType.World);
 
             Set(news);
             IsBusy = false;
