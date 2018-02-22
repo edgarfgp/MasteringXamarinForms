@@ -7,6 +7,6 @@ namespace Paperboy.Contants
 
     public class CoreConstants
     {
-        public const string NewsSearchApiKey = "375595cf05a8419294116250e306069d";
+        public const string NewsSearchApiKey = "118ed4b058034611bba7617a5ea00340";
     }
 }

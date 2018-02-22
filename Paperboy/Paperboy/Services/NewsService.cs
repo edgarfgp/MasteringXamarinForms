@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using static Paperboy.Contants.CoreConstants;
 
 namespace Paperboy.Services
 {
@@ -20,7 +21,7 @@ namespace Paperboy.Services
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/?Category={category}";
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Contants.CoreConstants.NewsSearchApiKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", NewsSearchApiKey);
 
             var uri = new Uri(searchUrl);
             var result = await client.GetStringAsync(uri);
@@ -46,7 +47,7 @@ namespace Paperboy.Services
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/search?q={searchQuery}&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Contants.CoreConstants.NewsSearchApiKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", NewsSearchApiKey);
 
             var uri = new Uri(searchUrl);
             var result = await client.GetStringAsync(uri);
@@ -72,7 +73,7 @@ namespace Paperboy.Services
             string searchUrl = $"https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics";
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Contants.CoreConstants.NewsSearchApiKey);
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", NewsSearchApiKey);
 
             var uri = new Uri(searchUrl);
             var result = await client.GetStringAsync(uri);
