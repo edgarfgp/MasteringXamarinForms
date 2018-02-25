@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Paperboy.Contants;
 using Paperboy.Models;
 using Paperboy.Models.NewsInfo;
 using Paperboy.Models.TrendingNews;
