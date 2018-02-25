@@ -26,7 +26,9 @@ namespace Paperboy.Droid.DependencyServices
 
         public void Speak(string text)
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             var ctx = Forms.Context;
+#pragma warning restore CS0618 // Type or member is obsolete
             toSpeak = text;
             if (speaker == null)
             {
@@ -36,7 +38,9 @@ namespace Paperboy.Droid.DependencyServices
             {
                 if (Android.OS.Build.VERSION.Release.StartsWith("4"))
                 {
+#pragma warning disable CS0618 // Type or member is obsolete
                     speaker.Speak(toSpeak, QueueMode.Flush, null);
+#pragma warning restore CS0618 // Type or member is obsolete
                 }
                 else
                 {
